@@ -1,0 +1,1 @@
+ALTER TABLE `shop` ADD `paysber` INT(1) NOT NULL DEFAULT '0' AFTER `hideproductnosklad`, ADD INDEX `paysber` (`paysber`);

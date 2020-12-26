@@ -1,0 +1,146 @@
+AddDefaultCharset utf-8
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteCond %{HTTP_HOST} ^([^\.]+)\.comiron\.com$ [NC]
+RewriteRule ^(.*)$ http://comiron.com/shop/%1 [L,R=301] 
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.php [L]
+
+#php_flag always_populate_raw_post_data On
+#php_flag magic_quotes_gpc Off
+</IfModule>
+
+# Запрещаем листинг директорий.
+Options -indexes
+
+# Отключаем вывод информации о сервере.
+ServerSignature Off
+php_flag expose_php Off
+
+php_value mbstring.func_overload "7"
+
+php_value upload_max_filesize 300M
+php_value post_max_size 300M
+php_value max_execution_time 900
+
+# Не даем IE войти в режим совместимости с IE7, даже когда он сам этого хочет.
+# github.com/rails/rails/commit/123eb25#commitcomment-118920
+# Use ChromeFrame if it's installed for a better experience for the poor IE folk
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+            BrowserMatch MSIE ie
+            Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+    </IfModule>
+</IfModule>
+
+
+# ##############################################################################
+# # КЕШИРОВАНИЕ И СЖАТИЕ ФАЙЛОВ #
+# ##############################################################################
+
+<IfModule mod_deflate.c>
+          # these are known to be safe with MSIE 6
+          AddOutputFilterByType DEFLATE text/html text/plain text/xml
+
+          # everything else may cause problems with MSIE 6
+          AddOutputFilterByType DEFLATE text/css
+          AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/ecmascript application/json
+          AddOutputFilterByType DEFLATE application/rss+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+
+# Задаем значение по умолчанию (для всех файлов)
+  ExpiresDefault                          "access plus 1 month"
+
+# cache.appcache нельзя кэшировать в FF 3.6 (спасибо Remy ~Introducing HTML5)
+  ExpiresByType text/cache-manifest       "access plus 0 seconds"
+
+# Ваш html документ
+  <FilesMatch \.(html|xhtml|xml|shtml|phtml|php|txt)$>
+    ExpiresDefault "access plus 0 seconds"
+  </FilesMatch>
+  ExpiresByType text/html                 "access plus 0 seconds"
+
+# Данные
+  ExpiresByType text/xml                  "access plus 0 seconds"
+  ExpiresByType application/xml           "access plus 0 seconds"
+  ExpiresByType application/json          "access plus 0 seconds"
+
+# Рассылка
+  ExpiresByType application/rss+xml       "access plus 1 hour"
+  ExpiresByType application/atom+xml      "access plus 1 hour"
+
+# Favicon (не может быть переименован)
+  <FilesMatch \.(ico)$>
+    ExpiresDefault "access plus 1 week"
+  </FilesMatch>
+  ExpiresByType image/x-icon              "access plus 1 week"
+
+# Медиа: изображения, видео, аудио
+  <FilesMatch \.(gif|png|jpg|jpeg|ogg|mp4|mkv|flv|swf|wmv|asf|asx|wma|wax|wmx|wm)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType image/gif                 "access plus 1 month"
+  ExpiresByType image/png                 "access plus 1 month"
+  ExpiresByType image/jpeg                "access plus 1 month"
+  ExpiresByType video/ogg                 "access plus 1 month"
+  ExpiresByType audio/ogg                 "access plus 1 month"
+  ExpiresByType video/mp4                 "access plus 1 month"
+  ExpiresByType video/webm                "access plus 1 month"
+
+# HTC файлы (css3pie)
+  ExpiresByType text/x-component          "access plus 1 month"
+
+# Веб-шрифты
+  <FilesMatch \.(eot|ttf|otf|svg|woff)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType application/x-font-ttf    "access plus 1 month"
+  ExpiresByType font/opentype             "access plus 1 month"
+  ExpiresByType application/x-font-woff   "access plus 1 month"
+  ExpiresByType image/svg+xml             "access plus 1 month"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
+
+# CSS и JavaScript
+  <FilesMatch \.(css|js)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+
+# Статичные ресурсы
+  <FilesMatch \.(swf|pdf|doc|rtf|xls|ppt)$>
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+  ExpiresByType application/x-shockwave-flash "access plus 1 year"
+  ExpiresByType application/pdf               "access plus 1 year"
+  ExpiresByType application/msword            "access plus 1 year"
+  ExpiresByType application/rtf               "access plus 1 year"
+  ExpiresByType application/vnd.ms-excel      "access plus 1 year"
+  ExpiresByType application/vnd.ms-powerpoint "access plus 1 year"
+</IfModule>
+
+                                                                                                                                                                            
+<IfModule mod_headers.c>
+    # Указываем прокси-серверам передавать заголовок User-Agent
+    # для корректного распознавания сжатия.
+    Header append Vary User-Agent env=!dont-vary
+                                                                                                                                                                                            
+    # Запрещаем кэширование на уровне прокси-сервера для всех
+    # файлов, для которых у нас выставлено сжатие.
+    <FilesMatch .*\.(css|js|php|phtml|shtml|html|xml)$>
+	Header append Cache-Control: "private, must-revalidate"
+    </FilesMatch>
+</IfModule>
+                                                                                                                                                                                                                    
+# Allow cookies to be set from iframes in Internet Explorer.
+# http://msdn.microsoft.com/en-us/library/ms537343.aspx
+# http://www.w3.org/TR/2000/CR-P3P-20001215/
+<IfModule mod_headers.c>
+	Header set P3P "policyref=\"/w3c/p3p.xml\", CP=\"IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT\""
+</IfModule>

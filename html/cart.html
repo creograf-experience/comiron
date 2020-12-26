@@ -1,0 +1,399 @@
+
+	﻿		<!DOCTYPE html><html id="inside">
+<head>
+<meta charset="utf-8">
+
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="/css/container.css" rel="stylesheet" type="text/css">
+<!-- link href="/css/style.css" rel="stylesheet" type="text/css"-->
+
+<!-- link type="text/css" href="/css/jquery.css?v=5" rel="stylesheet" /-->
+<link type="text/css" href="/css/ui/jquery-ui-1.8.21.custom.css" rel="stylesheet" />
+<script src="http://127.0.0.1:1129/gadgets/js/rpc.js?c=1"></script>
+<script src="/gadgets/files/container/osapi.js"></script>
+<!--  the below was concated and compressed with yuicompressor using: java -jar {$path}/yuicompressor-2.3.5.jar -o {$file}-min.js {$file}.js -->
+<!--  script type="text/javascript" src="/js/jquery-1.3.js"></script-->
+<!--  script src="/js/jquery.ui.all.js"></script-->
+
+<script src="/js/jquery-1.7.2.min.js"></script>
+<!-- script src="/js/jquery.min.1.8.1.js"></script-->
+<!-- script src="http://code.jquery.com/jquery-1.9.1.min.js"></script-->
+<script src="/js/jquery.class.js"></script>
+<script src="/js/jquery.json-1.3.js"></script>
+<script src="/js/jquery-ui-1.8.21.custom.min.js"></script>
+<script src="/js/container.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="/js/jquery.checkbox.js"></script>
+<!--script src="/js/scrollto.js"></script-->
+<script src="/js/jquery.scrollTo-1.4.3.1.js "></script>
+<script src="/js/jquery.getimagesize.js "></script>
+<script src="/js/reject/jquery.reject.js"></script>
+<script src="/js/jquery.nicescroll.js"></script>
+
+<script src="/js/jquery.lightbox-0.5.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen" />
+
+<script src="/js/jquery.uploadifive.min.js"></script>
+		<!-- script src="/js/jquery.uploadifive.js"></script-->
+
+		<link rel="stylesheet" type="text/css" href="/css/uploadifive.css">
+		<link href="/uberuploadcropper/css/default.css" rel="stylesheet" type="text/css"/>
+		<!-- link href="/uberuploadcropper/css/uploadify.css" rel="stylesheet" type="text/css"/-->
+		<link href="/uberuploadcropper/scripts/Jcrop/css/jquery.Jcrop.css" rel="stylesheet" type="text/css"/>
+		<script src="/uberuploadcropper/scripts/swfobject.js"></script>
+		<script src="/uberuploadcropper/scripts/jquery.uploadify.v2.1.0.min.js"></script>
+		<script src="/uberuploadcropper/scripts/jquery-impromptu.3.1.min.js"></script>
+		<!-- script src="/uberuploadcropper/scripts/Jcrop/js/jquery.Jcrop.min.js"></script-->
+		<script src="/uberuploadcropper/scripts/Jcrop/js/jquery.Jcrop.js"></script>
+		<script src="/uberuploadcropper/scripts/jquery-uberuploadcropper.js"></script>
+
+<!--script type="text/javascript" src="/js/multiselect/plugins/localisation/jquery.localisation-min.js"></script>
+<script type="text/javascript" src="/js/multiselect/plugins/scrollTo/jquery.scrollTo-min.js"></script>
+<script type="text/javascript" src="/js/multiselect/ui.multiselect.js"></script-->
+<script type="text/javascript" src="/js/jquery.multiselect.js"></script>
+<script type="text/javascript" src="/js/jquery.multiselect.filter.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.multiselect.css">
+<link rel="stylesheet" type="text/css" href="/css/jquery.multiselect.filter.css">
+
+<script src="/js/websocket/websocket.js"></script>
+<script src="/js/im.js"></script>
+<script src="/js/tinymce/tinymce.min.js"></script>		
+
+<title>Comiron</title>
+
+<script src="/js/i18n/ru/main-ui.js"></script>
+<script src="/js/jquery.project.js"></script>
+<link rel="openid2.provider openid.server" href="http://127.0.0.1:1131/openid/auth">
+<meta http-equiv="X-XRDS-Location" content="http://127.0.0.1:1131/xrds">
+
+
+</head>
+
+<body>
+<div id="headerDiv"><div class="center">
+<table class="markup"><tr><td class="logo">
+<span id="headerLogo"><a href="/home"><img src="/images/comiron_logo.png" alt="Comiron"></a> </span>
+</td>
+<td><div class="headernav">
+	<a class="myprofile menu" href="/home"><img src="/images/i_myprofile.png" alt="Мой профиль" title="Мой профиль" ></a>
+
+	<a class="myoffice menu on" temphref="/profile/myshop" href="/shop/myshop"><img src="/images/i_myoffice_on.png" alt="Мой офис" title="Мой офис" ></a>
+
+	<a class="central menu" temphref="/profile/central" href="/central"><img src="/images/i_central.png" alt="Центральный<br> Comiron" title="Центральный<br> Comiron" ></a>
+</div></td>
+<td class="more">
+<div class="btn-group">
+    <button class="btn dropdown-toggle" data-toggle="dropdown">
+      
+      Еще      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      ...
+    </ul>
+  </div>
+</td>  
+<td class="search">
+<div id="searchDiv">
+<form method="get" id="searchform" action="/search">
+<div class="input-append">
+  <input type="text" id="search_q" name="q" placeholder="поиск">
+  <input type="hidden" name="for" id="for">
+  <div class="btn-group">
+    <button class="btn dropdown-toggle"   data-toggle="dropdown">
+		искать      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" id="search_for">
+    	<li><a href="#" id="people" value="people">люди</a></li>
+		<li><a href="#" id="organization" value="organization">организации</a></li>
+		<li><a href="#" id="product" value="product">товары</a></li>
+		<li><a href="#" id="news" value="news">новости</a></li>
+    </ul>
+  </div>
+</div>
+</form>
+</div>
+</td>
+<td class="logout">
+	<a href="/logout"><img src="/images/b_logout.png" alt="выйти"></a>
+</td>
+
+</tr></table></td>
+</tr></table></div></div>
+<div id="contentDiv"  class="isnotcentral">
+<div id="profileInfo">
+<a class="avatar" href="/shop/14" rel="me"><img src="/images/shop/14.205x205.jpg" /></a>
+
+	<div class="clearfix">
+			<a class="button btn" href="#" id="sendButton">Отправить сообщение</a>
+<script>
+
+$('#sendButton').bind('click', function() {
+	$("#send_dialog").dialog({
+		bgiframe: true,
+		resizable: false,
+		height:420,
+		width:400,
+		modal: true,
+		closeOnEscape: true,
+		overlay: {
+			backgroundColor: '#000',
+			opacity: 0.5
+		},
+		open: function(){
+            $(this).find("form").ajaxForm(function(){
+	            	$("#send_dialog").empty();
+	                $("<div>Сообщение отправлено.</div>").appendTo($("#send_dialog"));
+            });
+            $(this).find("#compose_cancel").click(function(e){
+            	$("#send_dialog").dialog("close");
+            	e.preventDefault();
+            	return false;
+            });
+	    }
+	});
+});
+</script>
+<div id="send_dialog" title="SendMessage" style="display:none">
+<form action="/shop/messages/send" method="post">
+<br />
+<b>Warning</b>:  filemtime() [<a href='function.filemtime'>function.filemtime</a>]: stat failed for E:\sn\xampp\htdocs\hasant\Application\Views/shop/shop_compose_message.php in <b>E:\sn\xampp\htdocs\hasant\Library\Controller.php</b> on line <b>51</b><br />
+<br />
+<b>Warning</b>:  include(E:\sn\xampp\htdocs\hasant\Application\Views/shop/shop_compose_message.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory in <b>E:\sn\xampp\htdocs\hasant\Library\Controller.php</b> on line <b>52</b><br />
+<br />
+<b>Warning</b>:  include() [<a href='function.include'>function.include</a>]: Failed opening 'E:\sn\xampp\htdocs\hasant\Application\Views/shop/shop_compose_message.php' for inclusion (include_path='E:\sn\xampp\htdocs\hasant/Library;.;e:\sn\xampp\php\PEAR') in <b>E:\sn\xampp\htdocs\hasant\Library\Controller.php</b> on line <b>52</b><br />
+</form>
+</div>
+		
+<a class="button btn" href="#" id="removeButton">Удалиться из клиентов магазина</a>
+<script>
+$('#removeButton').bind('click', function() {
+	$("#delete_dialog").dialog({
+		bgiframe: true,
+		resizable: false,
+		height:140,
+		modal: true,
+		closeOnEscape: true,
+		overlay: {
+			backgroundColor: '#000',
+			opacity: 0.5
+		},
+		buttons: [{
+			text : t("common","Remove"), 
+			click : function() {
+				$(this).dialog('destroy');
+				window.location = '/shop/removeclient/14';
+			}},
+			{
+			text: t("common", "No"),
+			click : function() {
+				$(this).dialog('destroy');
+			}}]
+		}
+	);
+});
+</script>
+	<div id="delete_dialog" title="Хотите удалить себя из клиентов магазина?" style="display:none">
+		<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>
+		Вы уверены, что хотите удалить себя из клиентов магазина shop?		</p>
+	</div>
+
+		
+	</div>
+
+
+<div class="header">Меню</div>
+<ul class="articlesMenu">
+<li><a href="/shop/article/17" >статья</a></li>
+</ul>
+
+<div class="header">Категории товаров</div>
+<ul class="groupMenu">
+<li><a href="/shop/group/26" >123</a></li><li><span class="num">(1)</span><a href="/shop/group/27" >группа</a></li><ul class="subgroups"><li><a href="/shop/group/56" >подгруппа</a></li></ul><li><a href="/shop/group/28" >фвафывфыв</a></li><li><a href="/shop/group/37" >ываыва</a></li><li><a href="/shop/group/39" >гр</a></li><li><a href="/shop/group/55" >группа</a></li></ul>
+
+
+	</div>
+<div id="profileContentWide">
+<div class="topheader">
+shop<div style="margin-right:10px; float:right; margin-top: -2px;"><a class="btn btn-small" href="/shop/myshop" title="Редактировать магазин"><!--span class="ui-icon ui-icon-pencil"></span-->Редактировать магазин</a></div></div>
+ 
+<div class="header">Заказать</div>
+
+<div class="body">		
+<form action="/shop/cart_send/14" id="cart" method="post">
+<input type="hidden" id="shop_id" name="shop_id" value="14">
+			
+        	<div class="item cartitem cart_35" id="15">
+	    	<div class="x"><a href="#" class="remove" id="35" name="dfgdfgs dfgdsf gdfg"><img src="/images/i_close.png"></a></div>
+        	
+        	<table class="markup"><tr><td>
+        	<div class="photo"><a href="/shop/product/15">
+<img src="/images/product/15.205x205.png">    		
+			</a></div>
+        	</td><td>
+        	<div class="title"><a href="/shop/product/35">dfgdfgs dfgdsf gdfg</a></div>
+			
+			<table class="markup"><tr>
+			<td width="266"><div class="price">Цена: <span class="price"  id="price-35">123</span>&nbsp;<span class="currency">USD</span></div></td>
+			<td width="166"><div>Количество: <span class="price"><input type="number" min="1" class="count" name="num35" id="count-35" value="1"></span></div></td>
+			<td width="66"><div>Сумма: <span class="price"><input type="text" class="sum" id="sum-35" readonly value="123"></span><span class="currency">USD</span></div></td>
+			</tr></table>
+			
+			</td></tr></table>
+			</div>
+			
+        	<div class="item cartitem cart_36" id="20">
+	    	<div class="x"><a href="#" class="remove" id="36" name="fd"><img src="/images/i_close.png"></a></div>
+        	
+        	<table class="markup"><tr><td>
+        	<div class="photo"><a href="/shop/product/20">
+<img src="/images/product/20.205x205.png">    		
+			</a></div>
+        	</td><td>
+        	<div class="title"><a href="/shop/product/36">fd</a></div>
+			
+			<table class="markup"><tr>
+			<td width="266"><div class="price">Цена: <span class="price"  id="price-36">0</span>&nbsp;<span class="currency">руб.</span></div></td>
+			<td width="166"><div>Количество: <span class="price"><input type="number" min="1" class="count" name="num36" id="count-36" value="1"></span></div></td>
+			<td width="66"><div>Сумма: <span class="price"><input type="text" class="sum" id="sum-36" readonly value="0"></span><span class="currency">руб.</span></div></td>
+			</tr></table>
+			
+			</td></tr></table>
+			</div>
+
+<table class="markup">
+<tr><td><span class="price">Итого:</span></td><td><span class="price" id="sum">123</span> USD<span class="price" id="sum">0</span> руб.</td></tr></table>
+
+
+<div class="btn-block right">
+<button class="update btn" type="button">Пересчитать</button>
+<button type="submit" class="checkout btn btn-success btn-large">Отправить заказ</button>
+</div>
+
+
+</form>
+
+    <!-- script type="text/javascript">
+    	$('.remove').bind('click', function() {
+        	var id=$(this).attr("id");
+        	var name=$(this).attr("name");
+    		$("#dialog").dialog({
+    			bgiframe: false,
+    			resizable: false,
+    			height:140,
+    			modal: true,
+    			closeOnEscape: true,
+    			overlay: {
+    				backgroundColor: '#000',
+    				opacity: 0.5
+    			},
+    			buttons: {
+    				'Remove': function() {
+    					$(this).dialog('destroy');
+    					//window.location = '/shop/cart_delete/'+id;
+    					
+    					var $divid=$(".cart_"+id);
+    					$divid.removeClass("item");
+    					$divid.load("/shop/cart_delete/"+id,
+    			    				function(responseText, textStatus, XMLHttpRequest){
+    							//readyfunction();
+    						});
+    				},
+    				Cancel: function() {
+    					$(this).dialog('destroy');
+    				}
+    			},
+    			open:function(){
+    				$("#dialog").find(".question").html("Вы действительно хотите удалить товар из корзины?");
+        		}
+    		});
+    		return false;
+    	});
+    </script-->
+    <div id="dialog" title="Удалить из корзины?" style="display:none">
+    	<p class="question"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p>
+    </div>
+<!-- script>
+
+	$('button.update').click(function(){
+		var id=$("input#shop_id").attr("value");
+		$("form#cart").attr("action", "/shop/cart_update/"+id);
+		$("form#cart").submit();
+	});
+	$(".count").change(function(e){
+		var regex = /count-(\d+)/;
+		var id=regex.exec($(this).attr("id"));
+		var count=$(this).val();
+		id=id[1];
+		var price=$("#price-"+id).text();
+		$("#sum-"+id).val(price*count);
+
+		var sum=0;
+		$("input.sum").each(function(e){
+			sum+=parseInt($(this).val());
+		});
+		$("#sum").html(sum);
+	});
+
+
+</script-->
+</div>
+
+  <div style="clear: both"></div>
+</div>
+</div>
+ <div id="footerDiv"><div class="center">
+  <div id="footerup"></div>
+  <div id="footerdown"></div>
+   <ul>
+   <li class="comiron">Comiron, &copy; 2012-2014</li>
+   <li><a href="#">Правила</a></li>
+   <li><a href="#">Реклама</a></li>
+   <li><a href="#">Условия использования</a></li>
+      <li>   язык интерфейса:    </li><li>
+   		<div class="choose">
+   <a href="/profile/lang/en" title="Английский">Английский</a><br>
+   <a href="/profile/lang/ru" title="Русский">Русский</a><br>
+   <a href="/profile/lang/ch" title="Китайский">Китайский</a><br>
+   <a href="/profile/lang/it" title="Итальянский">Итальянский</a>
+   		   		</div>
+   </li>
+   <li>контент страны:</li>
+      <li>
+   		<div class="choose">
+   		   <a href="/profile/country_content/RU" title="Российская Федерация"  >Российская Федерация</a><br>
+<a href="/profile/country_content/CN" title="Китай"  >Китай</a><br>
+<a href="/profile/country_content/US" title="Соединенные Штаты Америки"  >Соединенные Штаты Америки</a><br>
+<a href="/profile/country_content/IT" title="Италия"  >Италия</a><br>
+   		
+		</div>
+   </li>
+   </ul>
+  </div></div>
+</div>
+<!--div id="bigphoto"></div-->
+<div id="ajax-loader"></div>
+<div id="message_compose_dialog"></div>
+<div id="dialog_news"></div>
+<div id="dialog_comment_remove" title="" style="display:none"><p class="question"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p></div>
+<div id="dialog_attachphoto" title="" style="display:none"></div>
+<div id="comment_compose_dialog" style="display:none;"></div>
+<div id="dialog_news_remove" title="" style="display:none"><p class="question"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p></div>
+<div id="dialog_message_remove" title="" style="display:none"><p class="question"><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span></p></div>
+
+
+<script type="text/javascript" src="/js/photos.js"></script>
+<div style="display:none;"><!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t26.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: �������� ��᫮ ������⥫�� ��"+
+" ᥣ����' "+
+"border='0' width='88' height='15'><\/a>")
+//--></script><!--/LiveInternet-->
+</div>
+ <script src="/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

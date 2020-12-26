@@ -1,0 +1,16 @@
+*.log
+html/config.php
+/nbproject/private/
+#images/advert
+html/images/albums/*
+html/images/car/*
+#html/images/category/*
+html/images/comment/*
+html/images/country/*
+html/images/currency/*
+html/images/group/*
+html/images/messages/*
+html/images/people/*
+html/images/shop/*
+html/orders/*.xls
+.svn

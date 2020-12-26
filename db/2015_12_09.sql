@@ -1,0 +1,1 @@
+ALTER TABLE  `shop` ADD  `deliverycomp` DECIMAL( 10, 2 ) NULL

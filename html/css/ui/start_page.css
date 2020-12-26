@@ -1,0 +1,12 @@
+.ui-dialog{
+    top:  217px !important;
+    /*left: 66.66666666666666666666666666666667% !important; 8/12*/
+    left: 58.33333333333333333333333333333333% !important; /*7/12*/
+    
+}
+.ui-dialog #cancel{
+	display:none;
+}
+.logincolumn{
+	min-width:476px;
+}
